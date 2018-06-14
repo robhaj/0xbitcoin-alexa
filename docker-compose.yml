@@ -1,0 +1,8 @@
+version: '3.1'
+
+services:
+  alexa-skill:
+    build: .
+    environment:
+      - INFURA_MAINNET_URL=https://mainnet.infura.io/gmXEVo5luMPUGPqg6mhy
+      - CONTRACT_ADDRESS=0xB6eD7644C69416d67B522e20bC294A9a9B405B31
