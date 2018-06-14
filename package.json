@@ -1,0 +1,26 @@
+{
+  "name": "0xbitcoin-alexa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "alexa-message-builder": "^1.2.0",
+    "alexa-skill-kit": "^1.0.0",
+    "dotenv": "^6.0.0",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "web3": "^1.0.0-beta.34",
+    "web3-utils": "^1.0.0-beta.34"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "claudia": "^5.0.0",
+    "nyc": "^12.0.2"
+  },
+  "scripts": {
+    "test": "nyc ava",
+    "start": "node index.js"
+  },
+  "author": "Robby_Hajek <hajek.rob@gmail.com>",
+  "license": "ISC"
+}
