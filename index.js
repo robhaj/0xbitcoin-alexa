@@ -13,6 +13,8 @@ exports.handler = (ev, ctx) => {
     alexaSkillKit(ev, ctx, (msg) => {
       console.log('Incoming Message: ', msg);
       let {intent} = msg;
+      if (!intent) return 'No intent captured';
+
       console.log('Intent: ', intent);
       const {value:field} = intent.slots.Field;
       if (!['price', 'volume', 'market cap', 'hash rate'].includes(field.toLowerCase())) {
@@ -58,6 +60,6 @@ exports.handler = (ev, ctx) => {
       }
     })
   } catch (e) {
-    throw new Error(e);
+    context.fail(JSON.stringify(e));
   }
 };
