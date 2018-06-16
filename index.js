@@ -14,7 +14,7 @@ exports.handler = (ev, ctx) => {
       console.log('Incoming Message: ', msg);
       if (msg.type === 'LaunchRequest') {
         console.log('Message type is LaunchRequest!');
-        return new messageTemplate()
+        return new MessageTemplate()
           .addText(`Hello from Zero X bitcoin bot.
             I can give you the price, volume, and marketcap for zero x bitcoin.
             How can I help you toslacday?
