@@ -1,0 +1,7 @@
+{
+  "lambda": {
+    "role": "0xbitcoin-alexa-executor",
+    "name": "0xbitcoin-alexa",
+    "region": "us-west-2"
+  }
+}
