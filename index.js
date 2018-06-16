@@ -10,6 +10,26 @@ exports.handler = (ev, ctx) => {
   try {
     console.log(`Event starting: `, ev);
     console.log(`Context: `, ctx);
+    if (msg.type === 'LaunchRequest') {
+      console.log('Message type is LaunchRequest!');
+      return new messageTemplate()
+        .addText(`Hello from Zero X bitcoin bot.
+      I can give you the price, volume, and marketcap for zero x bitcoin.
+      How can I help you toslacday?
+      You can say:
+      What is the current zero x bitcoin price?
+      Or What is the current market cap of zero x bitcoin?
+    `)
+        .addReprompt(`
+      You can say:
+      What is the current zero x bitcoin price?
+      Or What is the current market cap of zero x bitcoin ?
+    `)
+        .keepSession()
+        .get();
+    }
+
+    //Not launchrequest type, fire handler
     alexaSkillKit(ev, ctx, (msg) => {
       console.log('Incoming Message: ', msg);
       let {intent} = msg;
@@ -40,24 +60,6 @@ exports.handler = (ev, ctx) => {
         default: () => `Hmm, Zero x bitcoin doesn't know that one`;
       }
 
-      if (msg.type === 'LaunchRequest') {
-        console.log('Message type is LaunchRequest!');
-        return new messageTemplate()
-          .addText(`Hello from Zero X bitcoin bot.
-            I can give you the price, volume, and marketcap for zero x bitcoin.
-            How can I help you today?
-            You can say:
-            What is the current zero x bitcoin price?
-            Or What is the current market cap of zero x bitcoin?
-          `)
-          .addReprompt(`
-            You can say:
-            What is the current zero x bitcoin price?
-            Or What is the current market cap of zero x bitcoin ?
-          `)
-          .keepSession()
-          .get();
-      }
     })
   } catch (e) {
     context.fail(JSON.stringify(e));
