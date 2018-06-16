@@ -2,16 +2,19 @@
 
 const Alexa = require('ask-sdk-core');
 
-// Handlers
+// Default Handlers
 const LaunchRequestHandler = require('./handlers/LaunchRequest');
 const HelloWorldIntentHandler = require('./handlers/HelloWorldIntent');
 const HelpIntentHandler = require('./handlers/HelpIntent');
 const CancelAndStopIntentHandler = require('./handlers/CancelAndStopIntent');
 const SessionEndedRequestHandler = require('./handlers/SessionEndedRequest');
 
-const getTicker = require('./getTicker');
-const getSupply = require('./getCircuSupply');
-const estimateHash = require('./estimateHash');
+// Custom Handlers
+const VolumeIntentHandler = require('./handlers/VolumeIntent');
+const CirculatingSupplyHandler = require('./handlers/CirculatingSupplyIntent');
+const HashrateIntentHandler = require('./handlers/HashrateIntent');
+const PriceIntentHandler = require('./handlers/PriceIntent');
+const MarketcapIntentHandler = require('./handlers/MarketcapIntent');
 
 let skill;
 
@@ -20,9 +23,14 @@ exports.handler = Alexa.SkillBuilders.custom()
     HelloWorldIntentHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
-    SessionEndedRequestHandler)
+    SessionEndedRequestHandler,
+    VolumeIntentHandler,
+    CirculatingSupplyHandler,
+    HashrateIntentHandler,
+    PriceIntentHandler,
+    MarketcapIntentHandler
+  )
   .lambda();
-
 
 
 // const alexaSkillKit = require('alexa-skill-kit')

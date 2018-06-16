@@ -1,6 +1,6 @@
 'use strict';
 
-const estimateHash = require('./helpers')
+const estimateHash = require('../helpers/estimateHash');
 
 module.exports = {
   canHandle(handlerInput) {

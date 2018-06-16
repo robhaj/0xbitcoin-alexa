@@ -1,6 +1,6 @@
 'use strict';
 
-const getCircuSupply = require('./helpers/getCircuSupply');
+const getCircuSupply = require('../helpers/getCircuSupply');
 
 module.exports = {
   canHandle(handlerInput) {
