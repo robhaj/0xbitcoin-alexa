@@ -1,4 +1,5 @@
   'use strict';
+
   const rp = require('request-promise');
 
   module.exports = async() => {

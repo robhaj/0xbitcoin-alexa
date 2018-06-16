@@ -1,9 +1,12 @@
+'use strict';
+
 module.exports = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speechText = 'Welcome to the Alexa Skills Kit, you can say hello!';
+    const speechText = `Welcome to 0xBitcoin, you can get info about the
+    price, market cap, supply, volume, and hash rate.`;
 
     return handlerInput.responseBuilder
       .speak(speechText)

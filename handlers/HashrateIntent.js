@@ -1,17 +1,19 @@
 'use strict';
 
+const estimateHash = require('./helpers')
+
 module.exports = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
+      handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
   },
-  handle(handlerInput) {
-    const speechText = `You can get information about 0xBitcoin, try asking
-    for the price, the market cap, the supply, or the hash rate`;
+  async handle(handlerInput) {
+    const hashrate = await estimateHash();
+
+    const speechText = `The current estimated hash rate of 0xBitcoin is ${hashrate}`;
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .reprompt(speechText)
       .withSimpleCard('Hello World', speechText)
       .getResponse();
   }

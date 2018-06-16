@@ -1,17 +1,18 @@
 'use strict';
 
+const getVolume = require('../helpers/getTicker');
+
 module.exports = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
+      handlerInput.requestEnvelope.request.intent.name === 'VolumeIntent';
   },
-  handle(handlerInput) {
-    const speechText = `You can get information about 0xBitcoin, try asking
-    for the price, the market cap, the supply, or the hash rate`;
+  async handle(handlerInput) {
+    const { volume_24h } = await getVolume();
+    const speechText = `The current volume of 0xBitcoin is ${volume_24h}`;
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .reprompt(speechText)
       .withSimpleCard('Hello World', speechText)
       .getResponse();
   }

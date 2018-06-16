@@ -1,7 +1,7 @@
 import test from 'ava';
-import getTicker from '../getTicker';
-import getSupply from '../getCircuSupply';
-import estimateHash from '../estimateHash';
+import getTicker from '../helpers/getTicker';
+import getSupply from '../helpers/getCircuSupply';
+import estimateHash from '../helpers/estimateHash';
 
 test('getTicker', async t => {
   let { price, volume_24h } = await getTicker();
@@ -19,4 +19,4 @@ test('estimateHash', async t => {
   let hashRate = await estimateHash();
   t.not(hashRate, null);
   t.true(hashRate > 0);
-})
+});
