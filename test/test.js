@@ -20,3 +20,11 @@ test('estimateHash', async t => {
   t.not(hashRate, null);
   t.true(hashRate > 0);
 });
+
+test('marketCap', async t => {
+  let circSupply = await getSupply();
+  let { price } = await getTicker();
+  let marketCap = price * circSupply;
+  t.not(marketCap, undefined);
+  t.true(marketCap > 0);
+});
