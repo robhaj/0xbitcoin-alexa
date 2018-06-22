@@ -11,10 +11,13 @@ module.exports = {
   async handle(handlerInput) {
     const { price } = await getPrice();
     const supply = await getCircuSupply();
-    const marketCap = price * supply;
-    let [dollars,cents] = `${marketCap}`.split('.');
-    const speechText = `The current market cap of 0xBitcoins is ${dollars} dollars
-    and ${cents[0] === '0' ? cents[1] : cents.slice(0,2)} cents`;
+
+    const [dollars, cents] = `${price * supply}`.split('.');
+
+    cents = cents[0] === '0' ? cents[1] : cents.slice(0, 2)
+
+    let dollarText = dollars === '0' ? '' : dollars
+    let speechText = `The current market cap of 0xBitcoins is ${dollarText} ${cents} cents`
 
     return handlerInput.responseBuilder
       .speak(speechText)

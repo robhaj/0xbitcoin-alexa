@@ -9,9 +9,12 @@ module.exports = {
   },
   async handle(handlerInput) {
     const { price } = await getPrice();
-    let [dollars,cents] = `${price}`.split('.');
-    const speechText = `The current price for 1 0xBitcoin is ${dollars} dollars
-    and ${cents[0] === '0' ? cents[1] : cents.slice(0,2)} cents`;
+    let [ dollars, cents ] = `${price}`.split('.');
+
+    cents = cents[0] === '0' ? cents[1] : cents.slice(0, 2)
+
+    const dollarText = dollars === '0' ? '' : `${dollars} dollars and`;
+    const speechText = `The current market cap of 0xBitcoins is ${dollarText} ${cents} cents`
 
     return handlerInput.responseBuilder
       .speak(speechText)
