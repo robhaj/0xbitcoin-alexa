@@ -14,7 +14,7 @@ module.exports = {
     const marketCap = price * supply;
     let [dollars,cents] = `${marketCap}`.split('.');
     const speechText = `The current market cap of 0xBitcoins is ${dollars} dollars
-    and ${cents[0] === '0' ? cents[1] : cents} cents`;
+    and ${cents[0] === '0' ? cents[1] : cents.slice(0,2)} cents`;
 ß
     return handlerInput.responseBuilder
       .speak(speechText)

@@ -11,7 +11,7 @@ module.exports = {
     const { price } = await getPrice();
     let [dollars,cents] = `${price}`.split('.');
     const speechText = `The current price for 1 0xBitcoin is ${dollars} dollars
-    and ${cents[0] === '0' ? cents[1] : cents} cents`;
+    and ${cents[0] === '0' ? cents[1] : cents.slice(0,2)} cents`;
 
     return handlerInput.responseBuilder
       .speak(speechText)
