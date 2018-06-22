@@ -9,7 +9,7 @@ module.exports = {
   },
   async handle(handlerInput) {
     const { volume_24h } = await getVolume();
-    const speechText = `The current volume of 0xBitcoin is ${volume_24h} dollars`;
+    const speechText = `The current volume of 0xBitcoin over the last 24 hours is ${volume_24h} dollars`;
 
     return handlerInput.responseBuilder
       .speak(speechText)
