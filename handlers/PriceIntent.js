@@ -9,7 +9,8 @@ module.exports = {
   },
   async handle(handlerInput) {
     const { price } = await getPrice();
-    const speechText = `The current price for 1 0xBitcoin is ${price}`;
+    let [dollars,cents]= price.split('.');
+    const speechText = `The current price for 1 0xBitcoin is ${dollars} dollars and ${cents}`;
 
     return handlerInput.responseBuilder
       .speak(speechText)

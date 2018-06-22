@@ -10,7 +10,7 @@ module.exports = {
   async handle(handlerInput) {
     const hashrate = await estimateHash();
 
-    const speechText = `The current estimated hash rate of 0xBitcoin is ${hashrate}`;
+    const speechText = `The current estimated hash rate of 0xBitcoin is ${hashrate} gigahashes per second`;
 
     return handlerInput.responseBuilder
       .speak(speechText)

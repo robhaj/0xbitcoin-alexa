@@ -12,8 +12,8 @@ module.exports = {
     const { price } = await getPrice();
     const supply = await getCircuSupply();
     const marketCap = price * supply;
-
-    const speechText = `The current market cap of 0xBitcoins is ${marketCap}`;
+    let [dollar,cents] = marketCap.split('.');
+    const speechText = `The current market cap of 0xBitcoins is ${dollars} dollars and ${cents} cents`;
 ß
     return handlerInput.responseBuilder
       .speak(speechText)
