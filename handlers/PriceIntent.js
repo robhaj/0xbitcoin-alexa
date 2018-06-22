@@ -13,7 +13,7 @@ module.exports = {
 
     cents = cents[0] === '0' ? cents[1] : cents.slice(0, 2)
 
-    const dollarText = dollars === '0' ? '' : `${dollars} dollars and`;
+    const dollarText = dollars === '0' ? '' : `${dollars} dollar${dollars === '1'?'':'s'} and`;
     const speechText = `The current price of 1 0xBitcoin is ${dollarText} ${cents} cents`
 
     return handlerInput.responseBuilder
