@@ -5,7 +5,7 @@ const estimateHash = require('../helpers/estimateHash');
 module.exports = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      handlerInput.requestEnvelope.request.intent.name === 'HelloWorldIntent';
+      handlerInput.requestEnvelope.request.intent.name === 'HashrateIntent';
   },
   async handle(handlerInput) {
     const hashrate = await estimateHash();
@@ -14,7 +14,7 @@ module.exports = {
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('Hello World', speechText)
+      .withSimpleCard('Hashrate', speechText)
       .getResponse();
   }
 };

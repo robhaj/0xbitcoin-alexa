@@ -13,7 +13,7 @@ module.exports = {
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('Hello World', speechText)
+      .withSimpleCard('Volume', speechText)
       .getResponse();
   }
 };

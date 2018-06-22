@@ -17,7 +17,7 @@ module.exports = {
 ß
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('Hello World', speechText)
+      .withSimpleCard('Market Cap', speechText)
       .getResponse();
   }
 };
