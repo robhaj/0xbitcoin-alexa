@@ -16,7 +16,7 @@ module.exports = {
 
     cents = cents[0] === '0' ? cents[1] : cents.slice(0, 2)
 
-    let dollarText = dollars === '0' ? '' : dollars
+    let dollarText = dollars === '0' ? '' : `${dollars} dollars and`
     let speechText = `The current market cap of 0xBitcoins is ${dollarText} ${cents} cents`
 
     return handlerInput.responseBuilder
