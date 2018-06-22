@@ -12,7 +12,7 @@ module.exports = {
     const { price } = await getPrice();
     const supply = await getCircuSupply();
 
-    const [dollars, cents] = `${price * supply}`.split('.');
+    let [dollars, cents] = `${price * supply}`.split('.');
 
     cents = cents[0] === '0' ? cents[1] : cents.slice(0, 2)
 
