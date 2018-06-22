@@ -9,7 +9,7 @@ module.exports = {
   },
   async handle(handlerInput) {
     const circuSupply = await getCircuSupply();
-    const speechText = `The current circulating supply of 0xBitcoin is ${circuSupply} 0xBitcoins!`;
+    const speechText = `The current circulating supply of 0xBitcoin is ${circuSupply} 0xBitcoins.`;
 
     return handlerInput.responseBuilder
       .speak(speechText)
