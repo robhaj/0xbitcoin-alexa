@@ -11,7 +11,7 @@ module.exports = {
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
-      .withSimpleCard('Hello World', speechText)
+      .withSimpleCard('Launch', speechText)
       .getResponse();
   }
 };
